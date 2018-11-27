@@ -12,17 +12,6 @@ import SnapKit
 class kakaoViewController: UIViewController {
     var kakao = UIButton()
     var cancel = UIButton()
-    override func viewWillAppear(_ animated: Bool) {
-        displayErrorMessage(title: "회원가입 - 카카오 버튼 클릭", message: "다른 계정으로 간편 로그인 선택하셔야합니다.")
-    }
-    func displayErrorMessage(title : String , message : String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let confirm = UIAlertAction(title: "확인", style: .default) {
-            (action : UIAlertAction) -> Void in
-        }
-        alert.addAction(confirm)
-        present(alert, animated: true, completion: nil)
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(kakao)
@@ -56,9 +45,8 @@ class kakaoViewController: UIViewController {
             }
             token.open(completionHandler: { (error) in
                 if error == nil {
-                    self.performSegue(withIdentifier: "kakao", sender: self)
                     if token.isOpen() {
-                        print("success")
+                       self.performSegue(withIdentifier: "kakao", sender: self)
                     }
                     else {
                         print("실패")

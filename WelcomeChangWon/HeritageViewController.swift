@@ -87,6 +87,9 @@ class HeritageViewController: UIViewController, MTMapViewDelegate, UITableViewDe
         navi.backgroundColor = UIColor.lightGray
         navi.topItem?.title = ""
         subview.insertSubview(Back, belowSubview: imageBtn3)
+        subview.snp.updateConstraints { (make) in
+            make.width.equalTo(UIScreen.main.bounds.width)
+        }
         Back.snp.makeConstraints { (make) in
             make.size.equalTo(subview)
         }

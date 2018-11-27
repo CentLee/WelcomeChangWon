@@ -84,6 +84,9 @@ class FoodViewController: UIViewController, MTMapViewDelegate, UITableViewDelega
         navi.backgroundColor = UIColor.lightGray
         navi.topItem?.title = ""
         subview.insertSubview(Back, belowSubview: Mainimage)
+        subview.snp.updateConstraints { (make) in
+            make.width.equalTo(UIScreen.main.bounds.width)
+        }
         Back.snp.makeConstraints { (make) in
             make.size.equalTo(subview)
         }

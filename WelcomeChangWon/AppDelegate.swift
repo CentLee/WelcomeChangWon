@@ -28,6 +28,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return false
     }
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey: Any] = [:]) -> Bool {
+        if KOSession.isKakaoAccountLoginCallback(url) { //어플 인증 절차가 끝나고 받는 url관리
+            return KOSession.handleOpen(url)
+        }
+        return false
+    }
     private func application(application: UIApplication, openURL url: URL, sourceApplication: String?, annotation: AnyObject) -> Bool {
         //kakao
         if KOSession.isKakaoAccountLoginCallback(url) {
