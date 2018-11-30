@@ -229,8 +229,8 @@ class HeritageViewController: UIViewController, MTMapViewDelegate, UITableViewDe
         item.customImageAnchorPointOffset = .init(offsetX: 30, offsetY: 0)    // 마커 위치 조정
         return item
     }
-    @objc func changeImage(sender : UIButton) {
-        Mainimage.image = sender.image(for: .normal)
+    @objc func changeImage(sender : UITapGestureRecognizer) {
+        Mainimage.image = (sender.view as! UIImageView).image!
     }
     @objc func ActCall(sender : UIButton) {
         if let url = URL(string: "telprompt://\(List["관리기관전화번호"]!)") {

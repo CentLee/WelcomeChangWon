@@ -91,7 +91,7 @@ class CourseViewController: UIViewController, UITableViewDelegate, UITableViewDa
         Km.snp.makeConstraints { (make) in
             make.width.equalTo(self.view.frame.width)
             make.height.equalTo(self.view.frame.height/40)
-            make.top.equalTo(self.view).offset(180)
+            make.top.equalTo(completeBut.snp.bottom).offset(20)
             make.centerX.equalTo(self.view)
         }
 
